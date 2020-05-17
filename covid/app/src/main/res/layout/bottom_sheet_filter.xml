@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/img_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:onClick="onFilterClicked"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/close_icon"
+
+         />
+
+    <TextView
+        android:id="@+id/tv_sorting_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filters"
+        android:textColor="@color/Black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_close" />
+
+    <TextView
+        android:id="@+id/tv_sorting_death"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:text="Total cases"
+        android:textColor="@color/Black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/img_close"
+        app:layout_constraintTop_toBottomOf="@+id/img_close" />
+
+
+        <EditText
+            android:id="@+id/et_case"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:maxLength="9"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_sorting_death"
+            app:layout_constraintStart_toEndOf="@+id/tv_sorting_death"
+            app:layout_constraintTop_toTopOf="@+id/tv_sorting_death" />
+
+
+
+
+    <TextView
+        android:id="@+id/textView232"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="24dp"
+        android:text="Total deaths"
+        android:textColor="@color/Black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_sorting_death"
+        app:layout_constraintTop_toBottomOf="@+id/et_case" />
+
+
+        <EditText
+            android:id="@+id/et_death"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:maxLength="9"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/textView232"
+            app:layout_constraintStart_toStartOf="@+id/et_case"
+            app:layout_constraintTop_toTopOf="@+id/textView232" />
+
+
+    <TextView
+        android:id="@+id/textView233"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="24dp"
+        android:text="Total recovered"
+        android:textColor="@color/Black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/textView232"
+        app:layout_constraintTop_toBottomOf="@+id/et_death" />
+
+
+        <EditText
+            android:id="@+id/et_recover"
+
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:maxLength="9"
+            android:textColorHint="@color/black"
+
+            app:layout_constraintBottom_toBottomOf="@+id/textView233"
+            app:layout_constraintStart_toStartOf="@+id/et_death"
+            app:layout_constraintTop_toTopOf="@+id/textView233" />
+
+
+
+
+
+
+
+
+
+  <!--  <EditText
+        android:id="@+id/et_confirmpassword"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_corner_border_bg_grey"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPersonName|textPassword"
+        android:padding="12dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView233"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView233"
+        app:layout_constraintTop_toTopOf="@+id/textView233" />-->
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="120dp"
+            android:background="@color/Black"
+            android:onClick="onSubmittedClick"
+            android:text="Submit"
+            android:textColor="@color/White"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/et_recover"
+            app:layout_constraintTop_toBottomOf="@+id/et_recover" />
+
+        <TextView
+            android:id="@+id/case_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:drawableRight="@drawable/down_icon"
+            android:onClick="moreCaseClicked"
+            android:text="&amp; more"
+            android:textColor="@color/RoyalBlue"
+            app:layout_constraintBottom_toBottomOf="@+id/et_case"
+            app:layout_constraintStart_toEndOf="@+id/et_case"
+            app:layout_constraintTop_toTopOf="@+id/et_case" />
+
+        <TextView
+            android:id="@+id/death_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/down_icon"
+            android:onClick="moreDeathClicked"
+            android:text="&amp; more"
+            android:textColor="@android:color/holo_red_dark"
+            app:layout_constraintBottom_toBottomOf="@+id/et_death"
+            app:layout_constraintStart_toStartOf="@+id/case_more"
+            app:layout_constraintTop_toTopOf="@+id/et_death" />
+
+        <TextView
+            android:id="@+id/recover_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/down_icon"
+            android:onClick="moreRecoverClicked"
+            android:text="&amp; more"
+            android:textColor="@color/DarkGreen"
+            app:layout_constraintBottom_toBottomOf="@+id/et_recover"
+            app:layout_constraintStart_toStartOf="@+id/death_more"
+            app:layout_constraintTop_toTopOf="@+id/et_recover" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*Click on &amp; more for toggling "
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/img_close"
+            app:layout_constraintTop_toBottomOf="@+id/img_close" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

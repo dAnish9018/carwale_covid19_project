@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/SmokyWhite"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/common_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="Statistics"
+        android:textColor="@color/teal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total_death" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="12dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_applied_filter" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Location"
+            android:textAlignment="center"
+            android:textColor="@color/teal"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_sorting_active"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/tv_sorting_active"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/sort"
+            android:text="Active"
+            android:onClick="onSortingClick"
+            android:textAlignment="center"
+            android:textColor="@color/RoyalBlue"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_sorting_death"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/tv_sorting_death"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/sort"
+            android:text="Deaths"
+            android:onClick="onSortingClick"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_sorting_recovered"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_sorting_active"
+            app:layout_constraintTop_toTopOf="@+id/tv_sorting_active" />
+
+        <TextView
+            android:id="@+id/tv_sorting_recovered"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/sort"
+            android:text="Recovered"
+            android:textAlignment="center"
+            android:textColor="@color/DarkGreen"
+            android:onClick="onSortingClick"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_sorting_death"
+            app:layout_constraintTop_toTopOf="@+id/tv_sorting_death" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_country_list"
+            android:layout_width="0dp"
+            android:layout_height="230dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/AliceBlue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/iv_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onUpClicked"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rv_country_list"
+        app:srcCompat="@drawable/up_icon" />
+
+    <ImageView
+        android:id="@+id/iv_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onDownClicked"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_country_list"
+        app:layout_constraintEnd_toEndOf="@+id/rv_country_list"
+        app:srcCompat="@drawable/down_icon" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/iv_down"
+        app:layout_constraintEnd_toEndOf="@+id/rv_country_list"
+        app:layout_constraintStart_toStartOf="@+id/iv_up"
+        app:layout_constraintTop_toBottomOf="@+id/iv_up" />
+
+        <TextView
+            android:id="@+id/tv_total_cases"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/round_border_bg_tale"
+            android:backgroundTint="@color/RoyalBlue"
+            android:gravity="center|center_vertical"
+            android:paddingLeft="4dp"
+            android:paddingTop="8dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="8dp"
+            android:text="Total cases \n ---"
+
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_total_death"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include" />
+
+        <TextView
+            android:id="@+id/tv_total_death"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/round_border_bg_tale"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:gravity="center|center_vertical"
+            android:paddingLeft="4dp"
+            android:paddingTop="8dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="8dp"
+            android:text="Deaths \n ---"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_total_recovered"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_cases"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_cases" />
+
+        <TextView
+            android:id="@+id/tv_total_recovered"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_border_bg_tale"
+            android:backgroundTint="@color/DarkGreen"
+            android:gravity="center|center_vertical"
+            android:paddingLeft="4dp"
+            android:paddingTop="8dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="8dp"
+            android:text="Recovered\n ---"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_death"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_death" />
+
+        <TextView
+            android:id="@+id/btn_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onFilterClicked"
+            android:text="Filter"
+            android:textColor="@color/RoyalBlue"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="@+id/divider"
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/text_applied_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Applied Filter"
+            android:textSize="10sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/tv_total_cases"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/tv_filter_case"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/round_border_bg_tale"
+            android:backgroundTint="@color/RoyalBlue"
+            android:gravity="center|center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="4dp"
+            android:text="cases \n 800000"
+            android:textColor="@color/white"
+            android:textSize="7sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/text_applied_filter"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/tv_filter_death"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/round_border_bg_tale"
+            android:backgroundTint="@color/RoyalBlue"
+            android:gravity="center|center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="4dp"
+            android:text="death \n 2020"
+            android:textColor="@color/white"
+            android:textSize="7sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/tv_filter_case"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/tv_filter_recovery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/round_border_bg_tale"
+            android:backgroundTint="@color/RoyalBlue"
+            android:gravity="center|center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="4dp"
+            android:text="recovery \n 2020"
+            android:textColor="@color/white"
+            android:textSize="7sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/tv_filter_death"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Clear FIlter"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_filter_death"
+            app:layout_constraintStart_toEndOf="@+id/tv_filter_recovery"
+            app:layout_constraintTop_toTopOf="@+id/tv_filter_death" />
+
+        <TextView
+            android:id="@+id/text_clear_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="4dp"
+            android:text="Clear Filter"
+            android:textSize="10sp"
+            android:textColor="@color/DarkRed"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:onClick="onClearFilteredClicked"
+            app:layout_constraintEnd_toEndOf="@+id/btn_filter"
+            app:layout_constraintTop_toBottomOf="@+id/btn_filter" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:visibility="gone" />
+
+
+    <include layout="@layout/bottom_sheet_filter" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

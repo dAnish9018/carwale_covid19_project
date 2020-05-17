@@ -1,0 +1,47 @@
+<resources>
+    <!-- APP DETAILS -->
+    <string name="app_name">Covid</string>
+    <string name="app_version">1.0</string>
+
+    <!--ERROR MESSAGES-->
+    <string name="please_wait">Please wait…</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="no_internet">Please connect to internet!</string>
+    <string name="field_empty">Field can not be empty</string>
+    <string name="invalid">Invalid</string>
+
+    <!--SYMBOLS-->
+    <string name="rupee">\u20B9</string>
+
+    <!--TITLE-->
+    <string name="title_home">HOME</string>
+    <string name="title_forgot_password">FORGOT PASSWORD</string>
+    <string name="title_duress_config_sett">DURESS CONFIGURATION</string>
+    <string name="title_headphone">Headphone</string>
+    <string name="title_shake">shake</string>
+    <string name="title_toggle">toggle duress</string>
+    <string name="title_sos">sos duress</string>
+    <string name="title_checkin">check in</string>
+    <string name="title_geo_fencing">location</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_contact">Emergency contacts</string>
+    <string name="title_add_contact">Add contact</string>
+    <string name="title_biometric">biometric authentication</string>
+    <string name="title_change_password">Change Password</string>
+    <string name="title_manage">manage provider</string>
+    <string name="title_service">service provider</string>
+    <string name="title_package">packages</string>
+    <string name="title_notification">notifications</string>
+
+    <string name="welcome_text">Welcome Alevant</string>
+    <string name="logout">Logout</string>
+    <string name="logout_text">Are you sure You want to Logout?</string>
+
+    <!--Broadcast message-->
+    <string name="headset_unplugged">Headset is unplugged</string>
+    <string name="headset_plugged">Headset is plugged</string>
+    <string name="headset_stateless">I have no idea what the headset state is</string>
+
+    <string name="instructions">Place your fingertip on the Fingerprint sensor to verify your identity</string>
+
+</resources>
